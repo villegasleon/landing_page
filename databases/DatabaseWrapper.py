@@ -4,7 +4,7 @@ from databases.DatabaseConnector import DatabaseConnector
 class DatabaseWrapper:
     def call(self, stored_procedure_name, parameters):
         try:
-            databaseConnector =  DatabaseConnector('root','admin','localhost','3306','landingdb')
+            databaseConnector =  DatabaseConnector('TuRoot','TuPassword','localhost','3306','TuBaseDeDatos')
             databaseConnector.open_mysql_connection()
             databaseConnector.call_stored_procedure ( stored_procedure_name, parameters)
 
