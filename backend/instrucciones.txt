@@ -1,0 +1,57 @@
+Para empezar:
+
+Deberas crear una base de datos, una tabla y un stored procedure en Mysql, en este caso la cree:
+*****************************************************************
+CREATE DATABASE landingdb;
+
+
+***************************************************************
+USE landingDB;
+CREATE TABLE Subscriber (
+    id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefono VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+*****************************************************************
+CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertSubscriber`(IN correo_param VARCHAR(255), IN telefono_param VARCHAR(15))
+BEGIN
+    INSERT INTO Subscriber (correo, telefono) VALUES (correo_param, telefono_param);
+END;
+
+*********************************************************************
+Para echar a andar el backend:
+Posicionarte en consola:
+en la ruta donde hayas guardado tu carpeta:
+Activar tu entorno virtual, normal tendras que desplazarte hasta tu carpeta virtual y buscar la carpeta Scripts, luego escribes .\activate  y si no lo tienes aun
+entonces deberas crear un ambiente virtual, ya que ahi podras instalar las librerias que vamos a ocupar.
+Si no tienes esa carpeta, entonces te dejo unas instrucciones para crearla:
+1. carpeta se llama aut(aqui pones el nombre que tu quieras)
+2. Nos ubicamos dentro de la carpeta aut, y luego: python -m venv aut1(igual, pones lo que tu quieras en lugar de aut1)
+3. Cuado ya se creo pasa sin errores, y crea la caarpeta y dento de ella viene otra carpeta que se llama scripts
+4. Nos movemos dentro de la carpeta creada:  aut1 (la que nombraste)
+5. Para activar el entorno virtual, nos metemos desde consola a Scripts y al final tecleamos :  .\activate
+
+Vas a instalar:
+pip install flask
+pip install mysql.connector
+pip install flask-cors
+pip install --upgrade Flask Werkzeug
+
+Despues de tener todo instalado y activado tu entorno virtual, haces correr la app, py app.py
+
+Para echar a andar el frontend:
+Instalar
+npm install bootstrap
+npm install -g npm@latest
+
+Para correr react:
+Te posicionas en tu carpeta donde esta almacenada tu app de react y le das: npm start
+NO OLVIDES CAMBIAR LA CARPETA DONDE TU HAYAS GUARDADOS TUS ARCHIVOS, O SEA LAS RUTAS. ESTO EN App.js y en styles.css
+
+
+
+
+
+
